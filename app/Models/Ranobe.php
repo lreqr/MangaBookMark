@@ -12,12 +12,10 @@ class Ranobe extends Model
 
     protected $guarded = [
         'id',
-        'created_at',
-        'updated_at',
     ];
 
     public function title()
     {
-        return $this->belongsToMany(Title::class, 'title_publishers', 'publisher_id', 'title_id');
+        return $this->belongsTo(Title::class);
     }
 }

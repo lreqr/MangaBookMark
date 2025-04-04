@@ -16,10 +16,11 @@ return new class extends Migration
     {
         Schema::create('ranobes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('adaptation_id')->constrained('titles')->onDelete('cascade');
+            $table->foreignId('title_id')->constrained('titles');
             $table->enum('type', [RanobeType::JAPAN, RanobeType::KOREA, RanobeType::CHINA, RanobeType::ENGLISH, RanobeType::AUTHORS, RanobeType::FANFIC])->nullable();
             $table->enum('title_status', [RanobeTitleStatus::ONGOING, RanobeTitleStatus::DONE, RanobeTitleStatus::ANNOUNCEMENT, RanobeTitleStatus::STOPPED, RanobeTitleStatus::DISCONTINUED]);
             $table->enum('translation_type', [TranslationType::DONE, TranslationType::ONGOING, TranslationType::NOT_STARTED])->default(TranslationType::NOT_STARTED);
+            $table->timestamps();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\TitleType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,6 +40,11 @@ class Title extends Model
     public function artists()
     {
         return $this->belongsToMany(People::class, 'title_artists', 'title_id', 'people_id');
+    }
+
+    public function ranobe()
+    {
+        return $this->hasOne(Ranobe::class, 'title_id', 'id');
     }
 
 }

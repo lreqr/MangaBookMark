@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Title;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTitleRequest;
 use App\Http\Requests\UpdateTitleRequest;
+use App\Models\Title;
+use Illuminate\Support\Facades\Response;
 
 class TitleController extends Controller
 {
@@ -13,7 +15,8 @@ class TitleController extends Controller
      */
     public function index()
     {
-        //
+        $titles = Title::all();
+        return Response::json($titles, 200);
     }
 
     /**

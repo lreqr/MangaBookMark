@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Ranobe;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRanobeRequest;
 use App\Http\Requests\UpdateRanobeRequest;
+use App\Models\Ranobe;
 
 class RanobeController extends Controller
 {

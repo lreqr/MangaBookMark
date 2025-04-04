@@ -87,7 +87,6 @@ class TitleSeeder extends Seeder
             ]),
             'release_date' => now(),
             'chapters' => 369,
-            'title_type' => TitleType::RANOBE,
             'alternative_names' => json_encode([
                 'Mushoku Tensei (LN)',
                 '無職転生 (LN)',
@@ -101,8 +100,10 @@ class TitleSeeder extends Seeder
 
         $ranobe = Ranobe::create([
             'type' => RanobeType::JAPAN,
+            'title_id' => $title->id,
             'title_status' => RanobeTitleStatus::DONE,
             'translation_type' => TranslationType::ONGOING,
+            //Привязвываем к ранобе главный тайтл
         ]);
 
         // Привязываем автора
@@ -110,13 +111,14 @@ class TitleSeeder extends Seeder
 
         // Привязываем художника
         $title->artists()->attach($shirotaka->id);
+
         //Привязываем франшизу
         $title->franchises()->attach($franchise->id);
+
         //Привязываем издателей
         $title->publishers()->attach($publisher_1->id);
         $title->publishers()->attach($publisher_2->id);
         $title->publishers()->attach($publisher_3->id);
-        //Привязвываем к ранобе главный тайтл
 
     }
 }

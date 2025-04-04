@@ -21,7 +21,6 @@ return new class extends Migration
             $table->jsonb('avatar_images')->nullable();
             $table->date('release_date')->nullable();
             $table->integer('chapters')->nullable();
-            $table->enum('title_type', [TitleType::ANIME, TitleType::MANGA, TitleType::RANOBE]);
             $table->jsonb('alternative_names')->nullable();
             $table->float('rating')->default(0);
             $table->float('rating_count')->default(0);
