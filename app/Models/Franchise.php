@@ -10,8 +10,6 @@ class Franchise extends Model
     /** @use HasFactory<\Database\Factories\FranchiseFactory> */
     use HasFactory;
 
-    protected $guarded = ['id'];
-
     protected $casts = [
         'names' => 'array',
     ];

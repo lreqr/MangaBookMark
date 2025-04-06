@@ -10,10 +10,6 @@ class Ranobe extends Model
     /** @use HasFactory<\Database\Factories\RanobeFactory> */
     use HasFactory;
 
-    protected $guarded = [
-        'id',
-    ];
-
     protected $casts = [
         'avatar_images' => 'array',
         'alternative_names' => 'array',

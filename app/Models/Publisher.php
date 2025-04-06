@@ -10,8 +10,6 @@ class Publisher extends Model
     /** @use HasFactory<\Database\Factories\PublisherFactory> */
     use HasFactory;
 
-    protected $guarded = ['id'];
-
     protected $casts = [
         'names' => 'array',
     ];

@@ -10,8 +10,6 @@ class People extends Model
     /** @use HasFactory<\Database\Factories\PeopleFactory> */
     use HasFactory;
 
-    protected $guarded = ['id'];
-
     protected $casts = [
         'names' => 'array',
     ];
