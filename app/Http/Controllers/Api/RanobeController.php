@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRanobeRequest;
 use App\Http\Requests\UpdateRanobeRequest;
 use App\Models\Ranobe;
+use Illuminate\Support\Facades\Response;
 
 class RanobeController extends Controller
 {
@@ -14,7 +15,8 @@ class RanobeController extends Controller
      */
     public function index()
     {
-        //
+        $titles = Ranobe::all();
+        return Response::json($titles, 200);
     }
 
     /**

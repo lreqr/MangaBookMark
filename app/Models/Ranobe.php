@@ -14,8 +14,28 @@ class Ranobe extends Model
         'id',
     ];
 
-    public function title()
+    protected $casts = [
+        'avatar_images' => 'array',
+        'alternative_names' => 'array',
+    ];
+
+    public function publishers()
     {
-        return $this->belongsTo(Title::class);
+        return $this->morphToMany(Publisher::class, 'publisherable', 'publisherables');
+    }
+
+    public function franchises()
+    {
+        return $this->morphToMany(Franchise::class, 'franchiseable', 'franchiseables');
+    }
+
+    public function authors()
+    {
+        return $this->morphToMany(People::class, 'authorable', 'authorables');
+    }
+
+    public function artists()
+    {
+        return $this->belongsToMany(People::class, 'title_artists', 'title_id', 'people_id');
     }
 }

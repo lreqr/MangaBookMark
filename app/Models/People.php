@@ -16,13 +16,13 @@ class People extends Model
         'names' => 'array',
     ];
 
-    public function authoredTitles()
+    public function authorable()
     {
-        return $this->belongsToMany(Title::class, 'title_authors', 'people_id', 'title_id');
+        return $this->morphedByMany(Ranobe::class, 'authorable');
     }
 
-    public function illustratedTitles()
+    public function artistable()
     {
-        return $this->belongsToMany(Title::class, 'title_artists', 'people_id', 'title_id');
+        return $this->morphedByMany(Ranobe::class, 'artistable');
     }
 }

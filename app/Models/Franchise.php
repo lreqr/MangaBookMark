@@ -16,8 +16,11 @@ class Franchise extends Model
         'names' => 'array',
     ];
 
-    public function titles()
+    public function franchiseable()
     {
-        return $this->belongsToMany(Title::class, 'title_publishers', 'publisher_id', 'title_id');
+        return $this->morphedByMany(Ranobe::class, 'franchiseable');
+//            ->union($this->morphedByMany(Anime::class, 'publisherable'))
+//            ->union($this->morphedByMany(Manga::class, 'publisherable'))
+//            ->union($this->morphedByMany(Ranobe::class, 'publisherable'));
     }
 }
